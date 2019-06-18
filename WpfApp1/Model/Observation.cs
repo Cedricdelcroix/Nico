@@ -13,7 +13,7 @@ namespace WpfApp1.Model
     {
         public String Text { get; set; }
 
-        public List<Objectif> objectifs;
+        public List<Objectif> objectifs;        
 
         public void setObservation(string observation)
         {

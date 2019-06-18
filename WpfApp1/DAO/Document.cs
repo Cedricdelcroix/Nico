@@ -9,16 +9,24 @@ namespace WpfApp1.DAO
 {
     public sealed class Document
     {
-        public static string SAVE_PATH = "d:\\Profiles\\cdelcroix\\Documents\\";
         private static Document instance = null;
+
+        private const string FILE_PATH = "c:\\kine\\document.xml";
 
         public XmlDocument XmlTree;
 
         public Document()
         {
-            XmlTree = new XmlDocument();
-            XmlNode rootNode = XmlTree.CreateElement("Observations");
-            XmlTree.AppendChild(rootNode);
+            if (ReadDocument() != null) {
+                XmlTree = ReadDocument();
+            }else{
+                XmlTree = new XmlDocument();
+                 XmlNode rootNode = XmlTree.CreateNode("element", "Observations", "");
+                 XmlNode moyenNode = XmlTree.CreateNode("element", "Moyen", "");
+                 rootNode.AppendChild(moyenNode);
+                 XmlTree.AppendChild(rootNode);                
+                SaveDocument();
+            }           
         }
 
         public static Document Instance
@@ -36,9 +44,20 @@ namespace WpfApp1.DAO
         public void SaveDocument()
         {
             //Mapper
-
-
-            XmlHelper.ToXmlFile(XmlTree, SAVE_PATH);
+            XmlHelper.ToXmlFile(XmlTree, FILE_PATH);
         }
+
+        //read the document Function
+
+        public XmlDocument ReadDocument()
+        {
+            try{
+                XmlDocument doc = new XmlDocument();
+                doc.Load(FILE_PATH);
+                return doc;               
+            }catch(Exception e){
+                return null;        
+            }
+        }       
     }
 }

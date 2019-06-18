@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.XmlS;
 using WpfApp1.DAO;
 using WpfApp1.Model;
 
@@ -14,11 +15,12 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
+        {            
             InitializeComponent();
+            Document document = Document.Instance;
             TextBox textBox = new TextBox() { Text = "", MaxWidth = 250 ,Width = 250};
 
-            this.Xml = new ObservableCollection<Observation>(); // ou chargement XML
+            this.Xml = ConvertNode<ObservableCollection<Observation>>document.XmlTree.SelectNodes("Observations");
 
             this.Xml.Add(new Observation() {Text = "Test obs" });
             this.observation.ItemsSource = this.Xml;
@@ -34,7 +36,6 @@ namespace WpfApp1
           //  this.observation.ItemsSource = this.Xml;
             this.Xml.Add(obs);
             Document.Instance.SaveDocument();      
-        }
-
+        }       
     }
 }
