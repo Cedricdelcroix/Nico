@@ -10,5 +10,11 @@ namespace WpfApp1.Model
         public String Text { get; set; }
 
         public int Weight;
+
+        public Moyen(string text, string weight)
+        {
+            this.Text = text;
+            this.Weight = int.Parse(weight);
+        }
     }
 }

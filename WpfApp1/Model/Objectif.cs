@@ -16,6 +16,13 @@ namespace WpfApp1.Model
 
         public int Weight { get; set; }
 
+        public Objectif(string text, string weight, List<Moyen> moyens)
+        {
+            this.Text = text;
+            this.Weight = int.Parse(weight);
+            this.moyens = moyens;
+        }
+
         public void setObjectif(string objectif, string observation)
         {
             Document doc = Document.Instance;

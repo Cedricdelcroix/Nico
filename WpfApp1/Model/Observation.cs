@@ -15,6 +15,14 @@ namespace WpfApp1.Model
 
         public List<Objectif> objectifs;        
 
+        public Observation(){}
+
+        public Observation(string text, List<Objectif> objectifs)
+        {
+            this.Text = text;
+            this.objectifs = objectifs;
+        }
+
         public void setObservation(string observation)
         {
             Document doc = Document.Instance;

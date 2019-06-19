@@ -21,9 +21,7 @@ namespace WpfApp1.DAO
                 XmlTree = ReadDocument();
             }else{
                 XmlTree = new XmlDocument();
-                 XmlNode rootNode = XmlTree.CreateNode("element", "Observations", "");
-                 XmlNode moyenNode = XmlTree.CreateNode("element", "Moyen", "");
-                 rootNode.AppendChild(moyenNode);
+                 XmlNode rootNode = XmlTree.CreateNode("element", "App", "");
                  XmlTree.AppendChild(rootNode);                
                 SaveDocument();
             }           

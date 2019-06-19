@@ -8,44 +8,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         x:Name="win">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <ListBox Name="observation" Grid.Column="0" Grid.RowSpan="1" ItemsSource="{Binding Xml,  diag:PresentationTraceSources.TraceLevel=High}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Orientation="Vertical">
-                        <TextBox MaxWidth="250" TextWrapping="Wrap" Text="{Binding Text}"></TextBox>
-                    </WrapPanel>
-                </DataTemplate>   
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="lisbox2" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" >
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <WrapPanel Orientation="Vertical">
-                        <TextBox MaxWidth="250" TextWrapping="Wrap" Text="coucou"></TextBox>
-                    </WrapPanel>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="listbox3" Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" >
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <WrapPanel Orientation="Vertical">
-                        <TextBox MaxWidth="250" TextWrapping="Wrap" Text="coucou"></TextBox>
-                    </WrapPanel>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Name="Btn_Save" Grid.Row="2" Grid.Column="1" Click="BtnOnClick"/>
-    </Grid>
+    <Canvas>
+        <Button x:Name="Btn_Save" Click="BtnOnClick" Height="23" Canvas.Left="54" Canvas.Top="356" Width="95"/>
+        <GroupBox Header="Observation" Height="104" Canvas.Top="10" Width="183" Canvas.Left="10">
+            <Canvas HorizontalAlignment="Left" Height="73" Margin="10,10,0,0" VerticalAlignment="Top" Width="148">
+                <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Canvas.Top="46" Width="148" RenderTransformOrigin="1.841,-0.444"/>
+                <ComboBox DisplayMemberPath="Text" x:Name="___ComboBoxObservation_" Canvas.Top="10" Width="148" Height="21" BorderBrush="#FFF1F1F1" Foreground="#FFAC0909" Background="{x:Null}" SelectionChanged="ComboBox_SelectionChanged"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="Objectif" Height="104" Canvas.Top="114" Width="183" Canvas.Left="10">
+            <Canvas HorizontalAlignment="Left" Height="73" Margin="10,10,0,0" VerticalAlignment="Top" Width="148">
+                <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Canvas.Top="46" Width="148" RenderTransformOrigin="1.841,-0.444"/>
+                <ComboBox x:Name="___ComboBoxObjectif_" Canvas.Top="10" Width="148" Height="21"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="Moyen" Height="104" Canvas.Top="223" Width="183" Canvas.Left="10">
+            <Canvas HorizontalAlignment="Left" Height="73" Margin="10,10,0,0" VerticalAlignment="Top" Width="148">
+                <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Canvas.Top="46" Width="148" RenderTransformOrigin="1.313,0.566"/>
+                <ComboBox x:Name="___ComboBoxMoyen_" Canvas.Top="10" Width="148" Height="21"/>
+            </Canvas>
+        </GroupBox>
+    </Canvas>
 </Window>
